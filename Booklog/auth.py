@@ -1,5 +1,5 @@
 """
-ログイン処理などを行う
+ログイン処理等を行う
 """
 
 from datetime import datetime

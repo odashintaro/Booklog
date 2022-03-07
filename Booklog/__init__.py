@@ -10,18 +10,17 @@ app.config.from_mapping(
     DATABASE=os.path.join(app.instance_path, 'Booklog.db')
 )
 
-# アプリケーションコンテキストが終了したときに
-# 毎回DBを切断する
+# アプリケーションコンテキストが終了したときに毎回DBを切断
 from .db import close_db
 app.teardown_appcontext(close_db)
 
 # インデックスページの読み込み
 import Booklog.views
 
-# ログイン機能の追加
+# ログイン機能
 import Booklog.auth
 app.register_blueprint(auth.bp)
 
-# 書籍管理機能の追加
+# 書籍管理機能
 import Booklog.book
 app.register_blueprint(book.bp)
